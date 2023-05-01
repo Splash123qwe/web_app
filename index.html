@@ -381,6 +381,26 @@
 
 <script type="application/javascript">
 
+const xhr = new XMLHttpRequest();
+const url = "https://www.corezoid.com/api/2/json/public/1208388/05118c1bf64e5ce2b3191b4f4fcc7f8ecd8a2f7c";
+
+xhr.open("POST", url);
+
+// Додавання заголовків до запиту, якщо потрібно
+xhr.setRequestHeader("Content-Type", "application/json");
+
+// Дані, що будуть відправлені в запиті
+const data = JSON.stringify({ key: "value" });
+
+xhr.send(data);
+
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        // Обробка відповіді сервера
+        console.log(xhr.responseText);
+    }
+};
+
     /*
      * This is a demo code for Telegram WebApp for Bots
      * It contains basic examples of how to use the API
